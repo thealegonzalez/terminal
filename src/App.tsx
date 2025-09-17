@@ -40,8 +40,6 @@ function animate() {
 
 
 function App() {
-  
-
 
 createEffect(() => {
 
@@ -139,6 +137,9 @@ onCleanup(() => {
   window.removeEventListener('resize', resize)
     console.log('unmounted')
   });
+
+  
+
 
 
 
