@@ -29,7 +29,7 @@ onCleanup(() => {
     try {
     port = await navigator.serial.requestPort();
 
-    await port.open({ baudRate: inputRef?.value});
+    await port.open({ baudRate: inputRef?parseInt(inputRef?.value):115200});
 
       setState({portStatus: true});
       console.log('port set')

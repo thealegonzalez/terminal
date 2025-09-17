@@ -1,7 +1,6 @@
 import { createSignal, createEffect, onCleanup } from 'solid-js'
 import { state } from './store/store' // <-- Import the store
 import './Terminal.css'
-import { arrayBuffer } from 'three/tsl';
 
 var port:any;
 
