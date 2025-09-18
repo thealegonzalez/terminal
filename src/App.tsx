@@ -17,6 +17,10 @@ const renderer = new CSS3DRenderer();
 
 function animate() {
 
+  if(controls.getAzimuthalAngle()<-0.01&&controls.getAzimuthalAngle()>-0.7){
+controls.autoRotateSpeed = 0
+  }
+
 				requestAnimationFrame( animate );
 
 				renderer.render( scene, camera );
@@ -51,7 +55,7 @@ createEffect(() => {
 		terminal.innerHTML = `<div id="terminalDisplay"></div>` 
 		const terminalObject = new CSS3DObject( terminal );
     terminalObject.position.y = 0
-    terminalObject.position.z = 900
+    terminalObject.position.z = 600
     terminalObject.scale.set(1,1,1)
 		scene.add( terminalObject );
 
@@ -60,18 +64,18 @@ createEffect(() => {
 		const controlPanelObject = new CSS3DObject( controlPanel );
     controlPanelObject.position.y = 0
     controlPanelObject.position.x = 700
-    controlPanelObject.rotation.y = -Math.PI/-4
-    controlPanelObject.position.z = 670
+    controlPanelObject.rotation.y = -Math.PI/-3
+    controlPanelObject.position.z = 200
     controlPanelObject.scale.set(1,1,1)
 		scene.add( controlPanelObject );
 
 
     const terminalBackg = document.createElement( 'div' );
-		terminalBackg.innerHTML = `<div style="height: 400px;border-radius: 15px 0 15px 0;width: 40rem;background-color:black;"></div>` 
+		terminalBackg.innerHTML = `<div style="height: 400px;border-radius: 15px 0 15px 0;width: 40rem;background-color:#000000f0;"></div>` 
 		const terminalBackgObject = new CSS3DObject( terminalBackg );
     terminalBackgObject.position.y = 0
-    terminalBackgObject.position.z = 850
-    terminalBackgObject.scale.set(1,1,1)
+    terminalBackgObject.position.z = 500
+    terminalBackgObject.scale.set(1.1,1.1,1.1)
 		scene.add( terminalBackgObject );
 
 
@@ -85,9 +89,9 @@ createEffect(() => {
 		const embedSongObject= new CSS3DObject( embedSong );
     embedSongObject.scale.set(1,1,1)
     embedSongObject.position.x = -600 
-    embedSongObject.position.z = 700 
+    embedSongObject.position.z = 250 
     embedSongObject.position.y = 0
-    embedSongObject.rotation.y = -Math.PI/4
+    embedSongObject.rotation.y = -Math.PI/3
 		scene.add( embedSongObject );
 
    
@@ -100,30 +104,27 @@ createEffect(() => {
 
     controls = new OrbitControls( camera, terminalContainer);
     controls.enableDamping = true
-    controls.dampingFactor = 0.03
+    controls.dampingFactor = 0.07
     controls.autoRotate = true
-    controls.autoRotateSpeed = 7
+    controls.autoRotateSpeed = -33
 
 
   renderer.setSize( window.innerWidth, window.innerHeight );
 terminalContainer.appendChild( renderer.domElement );
 console.log('rendered')  
-  camera.position.z = 1500
-  camera.position.y = 200
+  camera.position.z = 1100
+  camera.position.y = 50
   animate()
   setTimeout(()=>{
     const terminalDisplay = document.getElementById('terminalDisplay')
     const cPanelElement = document.getElementById('cPanel')
-    controls.autoRotateSpeed = -7
   render(() => <Terminal/>, terminalDisplay!)
   render(() => <Cpanel/>, cPanelElement!)
 
 
-setTimeout(()=>{
-    controls.autoRotateSpeed = 0
-  }, 900)
 
-  }, 777)
+
+  }, 100)
   
 }
 
