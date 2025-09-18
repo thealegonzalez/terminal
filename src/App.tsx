@@ -51,6 +51,7 @@ createEffect(() => {
 		terminal.innerHTML = `<div id="terminalDisplay"></div>` 
 		const terminalObject = new CSS3DObject( terminal );
     terminalObject.position.y = 0
+    terminalObject.position.z = 900
     terminalObject.scale.set(1,1,1)
 		scene.add( terminalObject );
 
@@ -59,8 +60,8 @@ createEffect(() => {
 		const controlPanelObject = new CSS3DObject( controlPanel );
     controlPanelObject.position.y = 0
     controlPanelObject.position.x = 700
-    controlPanelObject.rotation.y = Math.PI/-4
-    controlPanelObject.position.z = 200
+    controlPanelObject.rotation.y = -Math.PI/-4
+    controlPanelObject.position.z = 670
     controlPanelObject.scale.set(1,1,1)
 		scene.add( controlPanelObject );
 
@@ -69,7 +70,7 @@ createEffect(() => {
 		terminalBackg.innerHTML = `<div style="height: 400px;border-radius: 15px 0 15px 0;width: 40rem;background-color:black;"></div>` 
 		const terminalBackgObject = new CSS3DObject( terminalBackg );
     terminalBackgObject.position.y = 0
-    terminalBackgObject.position.z = -100
+    terminalBackgObject.position.z = 850
     terminalBackgObject.scale.set(1,1,1)
 		scene.add( terminalBackgObject );
 
@@ -84,9 +85,9 @@ createEffect(() => {
 		const embedSongObject= new CSS3DObject( embedSong );
     embedSongObject.scale.set(1,1,1)
     embedSongObject.position.x = -600 
-    embedSongObject.position.z = 200 
+    embedSongObject.position.z = 700 
     embedSongObject.position.y = 0
-    embedSongObject.rotation.y = Math.PI/4
+    embedSongObject.rotation.y = -Math.PI/4
 		scene.add( embedSongObject );
 
    
@@ -107,7 +108,7 @@ createEffect(() => {
   renderer.setSize( window.innerWidth, window.innerHeight );
 terminalContainer.appendChild( renderer.domElement );
 console.log('rendered')  
-  camera.position.z = 1000
+  camera.position.z = 1500
   camera.position.y = 200
   animate()
   setTimeout(()=>{

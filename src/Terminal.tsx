@@ -39,7 +39,7 @@ while (true) {
     break;
   }
   k8output += new TextDecoder().decode(value)
-  if(k8output[k8output.length-1] == '\r'){console.log(k8output)
+  if(k8output[k8output.length-1] == '\r'||k8output[k8output.length-1] == '\n'){console.log(k8output)
     setterminalMsg([{sender:'k8',msg:k8output},...terminalMsg()])
     k8output = ""
   };
@@ -61,8 +61,8 @@ while (true) {
        <>
 
     <div style={{"font-family":'"VT323", monospace',"font-weight":400,"font-style":"normal", "padding-inline":'15px'}} class='terminal text-visible'><span class='text-visible' style={{"padding-left":'5%', "font-size":'1.3rem'}}>Serial Alek</span>
-      <div style={{"overflow-y":'scroll',"overflow-x":'visible', "height":'80%',display:'flex', "flex-direction":'column-reverse', "background-color":'transparent'}}> {terminalMsg().map((val)=>{
-      return <span tabIndex={1} class='text-visible' style={{"white-space":"pre-wrap","font-size":'1.3rem',padding:0, "line-height":1.3,transition: '0.3s',"transform-origin": 'left' }}  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.25)')}
+      <div style={{"overflow-y":'scroll',"overflow-x":'clip', "height":'80%',display:'flex', "flex-direction":'column-reverse', "background-color":'transparent'}}> {terminalMsg().map((val)=>{
+      return <span tabIndex={1} class='text-visible' style={{"white-space":"pre-wrap","font-size":'1.3rem',padding:0, "line-height":1.3,transition: '0.3s',"transform-origin": 'left' }}  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03 )')}
       onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
 ><span>{val.sender=='user'?'>>>':null}</span>{val.msg}</span>
     })}</div>
